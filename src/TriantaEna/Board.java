@@ -1,15 +1,13 @@
 package TriantaEna;
 
-import java.util.HashMap;
 import java.util.ArrayList;
-
 import Common.Tuple;
 import GameObjects.Piece;
 
 public class Board extends GameObjects.Board {
 	
-	public Board(int boardSize, int nextPlayer, int totalPlayersCount) {
-		super(boardSize,nextPlayer,totalPlayersCount);		
+	public Board(int width, int height, int nextPlayer, int totalPlayersCount) {
+		super(width, height,nextPlayer,totalPlayersCount);		
 	}
 
 	@Override
