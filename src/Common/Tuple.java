@@ -2,19 +2,20 @@ package Common;
 
 public class Tuple {
 
-	public int Key;
+	private Object first;
 	
-	public int Value;
+	private Object second;
 	
-	public char CharValue;
-	
-	public Tuple(int key, int value) {
-		this.Key = key;
-		this.Value = value;
+	public Tuple(Object firstValue, Object secondValue) {
+		this.first = firstValue;
+		this.second = secondValue;
 	}
 	
-	public Tuple(int key, char charValue) {
-		this.Key = key;
-		this.CharValue = charValue;
+	public Object GetFirst() {
+		return this.first;
+	}
+	
+	public Object GetSecond() {
+		return this.second;
 	}
 }

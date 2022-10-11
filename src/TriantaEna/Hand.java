@@ -2,8 +2,6 @@ package TriantaEna;
 
 import java.util.ArrayList;
 
-import GameObjects.Card;
-
 public class Hand {
 	
 	private int CurrentValue;
