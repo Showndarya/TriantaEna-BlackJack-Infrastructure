@@ -12,7 +12,7 @@ public class Utilities {
 	public static Piece IterateList(ArrayList<Piece> pieces, int key) {
 		for(Object item : pieces) {
 			Piece piece = (Piece) item;
-			if(piece.GetKey() == key)  {
+			if((int)piece.GetKey() == key)  {
 				return piece;
 			}
 			else continue;
