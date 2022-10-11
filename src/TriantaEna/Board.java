@@ -7,7 +7,7 @@ import GameObjects.Piece;
 public class Board extends GameObjects.Board {
 	
 	public Board(int width, int height, int nextPlayer, int totalPlayersCount) {
-		super(width, height,nextPlayer,totalPlayersCount);		
+		super(width, height, nextPlayer,totalPlayersCount);		
 	}
 
 	@Override
