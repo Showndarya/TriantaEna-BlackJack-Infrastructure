@@ -4,7 +4,7 @@ import Common.*;
 import java.util.ArrayList;
 
 public abstract class Board {	
-	private void Init(int nextPlayer, int totalPlayersCount) {
+	protected void Init(int nextPlayer, int totalPlayersCount) {
 		this.NextPlayer = nextPlayer;
 		this.Pieces = new ArrayList<Piece>();
 		this.TotalPlayersCount = totalPlayersCount;
@@ -62,6 +62,8 @@ public abstract class Board {
 	}
 	
 	public abstract int GetBoardSize();
+	
+	public abstract int GetBoardSizePerPlayer(int playerId);
 	 
 	public abstract void PrintBoard();
 	
