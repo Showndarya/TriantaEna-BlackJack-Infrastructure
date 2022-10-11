@@ -1,19 +1,23 @@
 package TriantaEna;
 
+import Common.Tuple;
 import GameObjects.Piece;
+import TriantaEna.Enums.Rank;
+import TriantaEna.Enums.Suit;
 
-public class Card extends Piece {
+public class Card extends Piece {	
+	private Rank rank;
 	
-	private int FaceValue;
+	private Suit suit;
 	
-	public Card(int key, int value, String displayValue) {
+	public Card(int key, Rank rank, Suit suit) {
 		this.Key=key;
-		this.FaceValue=value;
-		this.DisplayValue=displayValue;
+		this.rank=rank;
+		this.suit=suit;
 	}
 	
 	@Override
-	public int GetKey() {
+	public Object GetKey() {
 		// TODO Auto-generated method stub
 		return this.Key;
 	}
@@ -21,12 +25,6 @@ public class Card extends Piece {
 	@Override
 	public Object GetDisplayValue() {
 		// TODO Auto-generated method stub
-		return this.DisplayValue;
-	}
-	
-	public Object GetFaceValue() {
-		// TODO Auto-generated method stub
-		return this.FaceValue;
-	}
-	
+		return new Tuple(this.suit, this.rank);
+	}	
 }                                                                  
