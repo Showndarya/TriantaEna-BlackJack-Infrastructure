@@ -1,7 +1,7 @@
 package GameObjects;
 
 public class Cell {
-	protected int Value;
+	protected Object Value;
 	
 	protected int WinWhenStarted;
 	
@@ -10,11 +10,11 @@ public class Cell {
 		this.WinWhenStarted = 0;
 	}
 	
-	public int GetValue() {
+	public Object GetValue() {
 		return this.Value;
 	}
 	
-	public void SetValue(int value) {
+	public void SetValue(Object value) {
 		this.Value = value;
 	}
 }
