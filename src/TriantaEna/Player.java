@@ -4,10 +4,12 @@ public class Player extends GameObjects.Player {
     protected int BetLimit;
     protected int CountCardsInHand;
     protected boolean IsBanker;
+    protected boolean HasFolded;
 
     public Player(int id) {
 		super(id);
 		this.IsBanker=false;
+        this.HasFolded=true;
 	}
 
     public void setBetLimit(int betLimit) {
@@ -36,6 +38,14 @@ public class Player extends GameObjects.Player {
     
     public Boolean IsBanker() {
     	return this.IsBanker;
+    }
+
+    public Boolean HasFolded() {
+        return this.HasFolded;
+    }
+
+    public void fold(){
+        this.HasFolded = true;
     }
 
 }
