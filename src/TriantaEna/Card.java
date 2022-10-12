@@ -31,12 +31,14 @@ public class Card extends Piece {
 	
 	public void Print() {
 		String[] lines = new String[9];
+		String space="";
+		if(this.rank.GetDisplay() != "10") space=" ";
 		IOWrapper.SysOutNL("┌───────┐");
-		IOWrapper.SysOutNL(String.format("│%s     │",this.rank.GetDisplay())); 
+		IOWrapper.SysOutNL(String.format("│%s%s     │",this.rank.GetDisplay(), space)); 
 		IOWrapper.SysOutNL("│       │");                                                                      
-		IOWrapper.SysOutNL(String.format("│   %s  │",this.suit.GetDisplay()));                                                     
+		IOWrapper.SysOutNL(String.format("│   %s   │",this.suit.GetDisplay()));                                                     
 		IOWrapper.SysOutNL("│       │");                                                                      
-		IOWrapper.SysOutNL(String.format("│     %s│",this.rank.GetDisplay()));                                                 
+		IOWrapper.SysOutNL(String.format("│     %s%s│",this.rank.GetDisplay(), space));                                                 
 		IOWrapper.SysOutNL("└───────┘");
 	}
 }
