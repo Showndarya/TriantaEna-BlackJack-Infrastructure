@@ -19,6 +19,7 @@ public class Main {
 		banker.SetBanker();
 		e.InitBoard(12, 0, n);
 		
+		
 		IOWrapper.SysOutNL("Starting round..");
 		IOWrapper.SysOutNL("First card...");
 		for(int i=0;i<n;i++) {
