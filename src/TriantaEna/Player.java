@@ -3,9 +3,11 @@ package TriantaEna;
 public class Player extends GameObjects.Player {
     protected int BetLimit;
     protected int CountCardsInHand;
+    protected boolean IsBanker;
 
     public Player(int id) {
 		super(id);
+		this.IsBanker=false;
 	}
 
     public void setBetLimit(int betLimit) {
@@ -24,8 +26,16 @@ public class Player extends GameObjects.Player {
         return this.CountCardsInHand;
     }
 
-    public void setCountCardsInHand(int countCardsInHand) {
-        this.CountCardsInHand = countCardsInHand;
+    public void addCountCardsInHand() {
+        this.CountCardsInHand++;
+    }
+    
+    public void SetBanker() {
+    	this.IsBanker=true;
+    }
+    
+    public Boolean IsBanker() {
+    	return this.IsBanker;
     }
 
 }

@@ -1,5 +1,6 @@
 package TriantaEna;
 
+import Common.IOWrapper;
 import Common.Tuple;
 import GameObjects.Piece;
 import TriantaEna.Enums.Rank;
@@ -27,4 +28,15 @@ public class Card extends Piece {
 		// TODO Auto-generated method stub
 		return new Tuple(this.suit, this.rank);
 	}	
-}                                                                  
+	
+	public void Print() {
+		String[] lines = new String[9];
+		IOWrapper.SysOutNL("┌───────┐");
+		IOWrapper.SysOutNL(String.format("│%s     │",this.rank.GetDisplay())); 
+		IOWrapper.SysOutNL("│       │");                                                                      
+		IOWrapper.SysOutNL(String.format("│   %s  │",this.suit.GetDisplay()));                                                     
+		IOWrapper.SysOutNL("│       │");                                                                      
+		IOWrapper.SysOutNL(String.format("│     %s│",this.rank.GetDisplay()));                                                 
+		IOWrapper.SysOutNL("└───────┘");
+	}
+}

@@ -3,10 +3,9 @@ package GameObjects;
 import java.util.ArrayList;
 
 public abstract class Engine {
-	protected Board Board;
-	
-	protected ArrayList<Team> Teams;
-	
+	protected Board Board;	
+	protected ArrayList<Team> Teams;	
+	protected ArrayList<Player> Players;	
 	protected Score Stats;
 	
 	public Board GetBoard() {
@@ -24,4 +23,10 @@ public abstract class Engine {
 	public ArrayList<Team> GetTeams() {
 		return this.Teams;
 	}
+	
+	public ArrayList<Player> GetPlayers() {
+		return this.Players;
+	}
+	
+	public abstract void AddPlayer(int id, String name, int balance);
 }
