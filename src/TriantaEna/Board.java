@@ -17,9 +17,13 @@ public class Board extends GameObjects.Board {
 	}
 
 	@Override
-	public void SetBoardMove(Tuple position, int m) {
-		// TODO Auto-generated method stub
-		
+	public void SetBoardMove(Tuple position, Object m) {
+		Card card = (Card) m;
+		int playerId = (int) position.GetFirst();
+		int cardNumber = (int) position.GetSecond();
+
+		Cell cell = (Cell) BoardLayout[playerId][cardNumber];
+		cell.SetValue(card);
 	}
 
 	@Override
