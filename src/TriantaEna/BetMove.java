@@ -4,18 +4,15 @@ import GameObjects.Move;
 import Common.Tuple;
 
 public class BetMove implements Move{
-    public Boolean IsValidMove(String move, int boardLength, int boardWidth, Board b) {
+	public Boolean IsValidMove(Tuple move, Board b) {
+        Player player = (Player) move.GetFirst();
+        int bet = (int) move.GetSecond();
 
+        int betLimit = player.getBetLimit();
+
+        if (bet > betLimit) {
+            return false;
+        }
+        return true;
     }
-
-	public Boolean IsValidMove(String move, Board b) {
-        Tuple boardSize = b.GetBoardSize();
-        int width = b.key;
-        int length = b.value;
-        this.IsValidMove(move, length, width, b);
-    }
-
-	public Boolean IsWinningMove(Tuple move, Board b, int pieceId) {
-
-    }	
 }
