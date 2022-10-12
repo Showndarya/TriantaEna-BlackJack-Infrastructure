@@ -2,7 +2,7 @@ package TriantaEna;
 
 public class Player extends GameObjects.Player {
     protected int BetLimit;
-    protected int cardsInHand;
+    protected int CountCardsInHand;
 
     public Player(int id) {
 		super(id);
@@ -19,4 +19,13 @@ public class Player extends GameObjects.Player {
     public void decrementBetLimit(int value) {
         this.BetLimit -= value;
     }
+
+    public int countCardsInHand() {
+        return this.CountCardsInHand;
+    }
+
+    public void setCountCardsInHand(int countCardsInHand) {
+        this.CountCardsInHand = countCardsInHand;
+    }
+
 }
