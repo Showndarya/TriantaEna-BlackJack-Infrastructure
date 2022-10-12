@@ -27,9 +27,11 @@ public class Board extends GameObjects.Board {
 	}
 
 	@Override
-	public int GetBoardMove(Tuple position) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Object GetBoardMove(Tuple position) {
+		int playerId = (int) position.GetFirst();
+		int cardNumber = (int) position.GetSecond();
+		Cell cell = (Cell) BoardLayout[playerId][cardNumber];
+		return cell.GetValue();
 	}
 
 	@Override
@@ -52,8 +54,20 @@ public class Board extends GameObjects.Board {
 
 	@Override
 	public int GetBoardSizePerPlayer(int playerId) {
-		// TODO Auto-generated method stub
 		return this.BoardLayout[playerId].length;
+	}
+
+	public int calculatePlayerScore(Player player) {
+		int playerId = player.GetId();
+		int cardNumber = player.countCardsInHand();
+		int score = 0;
+		for (int i = 0; i < cardNumber; i++) {
+			Cell cell = (Cell) this.BoardLayout[playerId][i];
+			Card card = cell.GetValue();
+			score += card.getRank().GetValue();
+		}
+
+		return score;
 	}
 	
 }; 

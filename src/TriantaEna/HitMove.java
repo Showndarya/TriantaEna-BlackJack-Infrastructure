@@ -25,6 +25,8 @@ public class HitMove implements GameObjects.Move{
         
         board.SetBoardMove(new Tuple(player.GetId(), cardNumber), card);
         player.addCountCardsInHand();
+
+        player.AddMove(new Tuple(this.getClass().toString(), move));
     }
 
 }

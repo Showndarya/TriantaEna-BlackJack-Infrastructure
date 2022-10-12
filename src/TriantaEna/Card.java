@@ -28,6 +28,10 @@ public class Card extends Piece {
 		// TODO Auto-generated method stub
 		return new Tuple(this.suit, this.rank);
 	}	
+
+	public Rank getRank() {
+		return this.rank;
+	}
 	
 	public void Print() {
 		String[] lines = new String[9];

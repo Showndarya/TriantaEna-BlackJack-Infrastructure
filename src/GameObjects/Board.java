@@ -69,7 +69,7 @@ public abstract class Board {
 	
 	public abstract void SetBoardMove(Tuple position, Object m);
 	
-	public abstract int GetBoardMove(Tuple position);
+	public abstract Object GetBoardMove(Tuple position);
 	
 	public abstract ArrayList<Piece> GetBoardPieces();
 	
