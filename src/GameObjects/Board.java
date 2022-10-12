@@ -67,7 +67,7 @@ public abstract class Board {
 	 
 	public abstract void PrintBoard();
 	
-	public abstract void SetBoardMove(Tuple position, int m);
+	public abstract void SetBoardMove(Tuple position, Object m);
 	
 	public abstract int GetBoardMove(Tuple position);
 	

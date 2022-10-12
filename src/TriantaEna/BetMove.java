@@ -24,7 +24,7 @@ public class BetMove implements Move{
         int betLimit = player.getBetLimit();
         player.setBetLimit(betLimit - bet);
 
-        player.AddMove(move);
+        player.AddMove(new Tuple(this.getClass().toString(), move));
     }
 
     public Boolean isWinningMove(Tuple move, GameObjects.Board board, int pieceId) {
