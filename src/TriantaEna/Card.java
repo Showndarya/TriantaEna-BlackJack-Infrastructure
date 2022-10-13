@@ -48,7 +48,6 @@ public class Card extends Piece {
 	}
 
 	private void printFaceDown() {
-		String[] lines = new String[9];
 		IOWrapper.SysOutNL("┌───────┐");
 		IOWrapper.SysOutNL("│///////│"); 
 		IOWrapper.SysOutNL("│///////│");                                                                      
@@ -59,7 +58,6 @@ public class Card extends Piece {
 	}
 
 	private void printFaceUp() {
-		String[] lines = new String[9];
 		String space="";
 		if(this.rank.GetDisplay() != "10") space=" ";
 		IOWrapper.SysOutNL("┌───────┐");

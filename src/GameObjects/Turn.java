@@ -1,7 +1,6 @@
 package GameObjects;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 import Common.*;
 
