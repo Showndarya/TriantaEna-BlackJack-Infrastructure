@@ -18,8 +18,8 @@ public class HitMove implements GameObjects.Move{
 
     public void makeMove(Tuple move, GameObjects.Board b) {
         Player player = (Player) move.GetFirst();
-        if(!player.checkIfBust()){
-            Board board = (Board) b;
+        Board board = (Board) b;
+        if(!player.checkIfBust(board)){
 
             Card card = Deck.PickNextCard();
             int cardNumber = player.countCardsInHand();

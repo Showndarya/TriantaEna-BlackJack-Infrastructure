@@ -5,8 +5,10 @@ import Common.Tuple;
 import GameObjects.Piece;
 
 public class Board extends GameObjects.Board {
+	private int CountBustedPlayers;
 	public Board(int nextPlayer, int totalPlayersCount, int maxCardsPerPlayer) {
-		super(totalPlayersCount, maxCardsPerPlayer, nextPlayer,totalPlayersCount);		
+		super(totalPlayersCount, maxCardsPerPlayer, nextPlayer,totalPlayersCount);	
+		this.CountBustedPlayers = 0;	
 	}
 
 	@Override
@@ -87,4 +89,15 @@ public class Board extends GameObjects.Board {
 		return cards;
 	}
 	
+	public void incrementBustedPlayers() {
+		this.CountBustedPlayers += 1;
+	}
+
+	public int countBustedPlayers() {
+		return this.CountBustedPlayers;
+	}
+
+	public Boolean areAllPlayersBust() {
+		return this.Width - 1 == this.CountBustedPlayers;
+	}
 }; 

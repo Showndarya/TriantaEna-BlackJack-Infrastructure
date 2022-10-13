@@ -67,8 +67,9 @@ public class Player extends GameObjects.Player {
         this.HasStanded = true;
     }
     
-    public void bust() {
+    public void bust(Board b) {
         this.IsBust = true;
+        b.incrementBustedPlayers();
     }
 
     public int getHandValue() {
@@ -87,9 +88,9 @@ public class Player extends GameObjects.Player {
         }
     }
 
-    public Boolean checkIfBust() {
-        if (this.HandValue >= 31) {
-            this.bust();
+    public Boolean checkIfBust(Board b) {
+        if (!this.IsBust && this.HandValue >= 31) {
+            this.bust(b);
         }
         return this.IsBust;
     }
