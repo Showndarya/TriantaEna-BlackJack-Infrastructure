@@ -5,11 +5,13 @@ public class Player extends GameObjects.Player {
     protected int CountCardsInHand;
     protected boolean IsBanker;
     protected boolean HasFolded;
+    protected int HandValue;
 
     public Player(int id) {
 		super(id);
 		this.IsBanker=false;
         this.HasFolded=true;
+        this.HandValue = 0;
 	}
 
     public void setBetLimit(int betLimit) {
@@ -46,6 +48,14 @@ public class Player extends GameObjects.Player {
 
     public void fold(){
         this.HasFolded = true;
+    }
+
+    public int getHandValue() {
+        return this.HandValue;
+    }
+
+    public void setHandValue(int handValue){
+        this.HandValue = handValue;
     }
 
 }
