@@ -73,5 +73,17 @@ public class Board extends GameObjects.Board {
 
 		return score;
 	}
+
+	public Card[] getPlayerCards(Player player){
+		int playerId = player.GetId();
+		int totalCards = player.countCardsInHand();
+
+		Card[] cards = new Card[totalCards];
+		for (int i = 0; i < totalCards && i < this.Height; i++) {
+			Cell cell = (Cell) this.BoardLayout[playerId][i];
+			cards[i] = cell.GetValue();
+		}
+		return cards;
+	}
 	
 }; 

@@ -58,4 +58,12 @@ public class Player extends GameObjects.Player {
         this.HandValue = handValue;
     }
 
+    public void printCards(Board board) {
+        Card[] cards = board.getPlayerCards(this);
+
+        for(int i = 0; i < cards.length; i++) {
+            cards[i].Print();
+        }
+    }
+
 }
