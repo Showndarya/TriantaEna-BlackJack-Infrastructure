@@ -5,12 +5,16 @@ public class Player extends GameObjects.Player {
     protected int CountCardsInHand;
     protected boolean IsBanker;
     protected boolean HasFolded;
+    protected boolean HasStanded;
+    protected boolean IsBust;
     protected int HandValue;
 
     public Player(int id) {
 		super(id);
 		this.IsBanker=false;
-        this.HasFolded=true;
+        this.HasFolded=false;
+        this.HasStanded=false;
+        this.IsBust=false;
         this.HandValue = 0;
         this.CountCardsInHand=0;
 	}
@@ -46,9 +50,25 @@ public class Player extends GameObjects.Player {
     public Boolean HasFolded() {
         return this.HasFolded;
     }
+    
+    public Boolean HasStanded() {
+        return this.HasStanded;
+    }
+    
+    public Boolean IsBust() {
+        return this.IsBust;
+    }
 
-    public void fold(){
+    public void fold() {
         this.HasFolded = true;
+    }
+    
+    public void stand() {
+        this.HasStanded = true;
+    }
+    
+    public void bust() {
+        this.IsBust = true;
     }
 
     public int getHandValue() {
@@ -67,4 +87,10 @@ public class Player extends GameObjects.Player {
         }
     }
 
+    public Boolean checkIfBust() {
+        if (this.HandValue >= 31) {
+            this.bust();
+        }
+        return this.IsBust;
+    }
 }

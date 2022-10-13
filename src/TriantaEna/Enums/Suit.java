@@ -2,7 +2,7 @@ package TriantaEna.Enums;
 
 public enum Suit {
     Heart("Hearts", "♥"),
-    Spade("Spades","♠"),
+    Spade("Spades","♠ "),
     Club("Clubs","♣"),
     Diamond("Diamonds","♦");
 

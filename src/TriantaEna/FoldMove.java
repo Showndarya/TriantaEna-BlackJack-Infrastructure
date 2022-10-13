@@ -24,9 +24,10 @@ public class FoldMove implements GameObjects.Move {
     @Override
     public void makeMove(Tuple move, Board b) {
         Player player = (Player) move.GetFirst();
-        player.fold();
-
-        player.AddMove(new Tuple(this.getClass().toString(), move));
+        if(!player.checkIfBust()){
+            player.fold();
+            player.AddMove(new Tuple(this.getClass().toString(), move));
+        }
     }
 
 }

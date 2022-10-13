@@ -3,6 +3,7 @@ package TriantaEna;
 public class Score extends GameObjects.Score {
 
 	private int currentBet;
+
 	public Score(int wins, int draws, int total) {
 		super(wins, draws, total);
 		this.currentBet=0;
