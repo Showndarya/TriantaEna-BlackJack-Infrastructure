@@ -1,13 +1,13 @@
 package TriantaEna;
 
 public class Player extends GameObjects.Player {
-    protected int BetLimit;
-    protected int CountCardsInHand;
-    protected boolean IsBanker;
-    protected boolean HasFolded;
-    protected boolean HasStanded;
-    protected boolean IsBust;
-    protected int HandValue;
+    private int BetLimit;
+    private int CountCardsInHand;
+    private boolean IsBanker;
+    private boolean HasFolded;
+    private boolean HasStanded;
+    private boolean IsBust;
+    private int HandValue;
 
     public Player(int id) {
 		super(id);
