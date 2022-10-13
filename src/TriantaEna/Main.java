@@ -18,6 +18,7 @@ public class Main {
 		Player banker=(Player) e.GetPlayers().get(0);
 		banker.SetBanker();
 		e.InitBoard(0, n, 12);
+        Board board=(Board) e.GetBoard();
 		IOWrapper.SysOutNL("Starting round..");
 		IOWrapper.SysOutNL("First card...");
 		for(int i=0;i<n;i++) {
@@ -25,14 +26,12 @@ public class Main {
 			Card card=Deck.PickNextCard();
 			Player player=(Player) e.GetPlayers().get(i);
 			Tuple move=new Tuple(i,player.countCardsInHand());
-			Board board=(Board) e.GetBoard();
 			board.SetBoardMove(move, card);
 			player.addCountCardsInHand();
 			card.Print();
 		}
 		
 		for(int i=0;i<n;i++) {
-			Board board=(Board) e.GetBoard();
 			IOWrapper.SysOutNL(String.format("Player %s", i+1));
 			int selection=io.GetUserInputTypeInt("1 for Bet or 2 for Fold:");
 			GameObjects.Move move;
@@ -49,29 +48,29 @@ public class Main {
 				
 			}
 		}
-		
-		for(int i=0;i<n;i++) {
-			Player player=(Player) e.GetPlayers().get(i);
-			if(player.HasFolded() || player.IsBust()) {
-			    continue;
-			}			
-
-            Board board=(Board) e.GetBoard();
-            IOWrapper.SysOutNL(String.format("Player %s", i+1));
-            int selection=io.GetUserInputTypeInt("1 for Hit or 2 for Stand:");
-            GameObjects.Move move;
-            switch(selection) {
-                case 1:
-                    move=new HitMove();
-                    move.makeMove(new Tuple((Player) e.GetPlayers().get(i), i ), board);
-                    break;
-                case 2:
-                    move=new StandMove();
-                    move.makeMove(new Tuple((Player) e.GetPlayers().get(i), i ), board);
-                    break;
-                    
-                }
-		}
+		do {
+    		for(int i=0;i<n;i++) {
+    			Player player=(Player) e.GetPlayers().get(i);
+    			if(player.HasFolded() || player.IsBust()) {
+    			    continue;
+    			}			
+    
+                IOWrapper.SysOutNL(String.format("Player %s", i+1));
+                int selection=io.GetUserInputTypeInt("1 for Hit or 2 for Stand:");
+                GameObjects.Move move;
+                switch(selection) {
+                    case 1:
+                        move=new HitMove();
+                        move.makeMove(new Tuple((Player) e.GetPlayers().get(i), i ), board);
+                        break;
+                    case 2:
+                        move=new StandMove();
+                        move.makeMove(new Tuple((Player) e.GetPlayers().get(i), i ), board);
+                        break;
+                        
+                    }
+    		}
+		} while(!board.arePlayersDown());
 		
 	}
 
