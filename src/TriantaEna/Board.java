@@ -5,14 +5,18 @@ import Common.Tuple;
 import GameObjects.Piece;
 
 public class Board extends GameObjects.Board {
-	
-	public Board(int width, int height, int nextPlayer, int totalPlayersCount) {
-		super(width, height, nextPlayer,totalPlayersCount);		
+	public Board(int nextPlayer, int totalPlayersCount, int maxCardsPerPlayer) {
+		super(totalPlayersCount, maxCardsPerPlayer, nextPlayer,totalPlayersCount);		
 	}
 
 	@Override
 	public void PrintBoard() {
-		// TODO Auto-generated method stub
+		for (int playerId = 0; playerId < this.Width; playerId++) {
+			for (int cellId = 0; cellId < this.Height; cellId++) {
+				Cell cell = (Cell) this.BoardLayout[playerId][cellId];
+				cell.printCell();
+			}
+		}
 		
 	}
 

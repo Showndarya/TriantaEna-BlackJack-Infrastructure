@@ -17,7 +17,7 @@ public class Main {
 		
 		Player banker=(Player) e.GetPlayers().get(0);
 		banker.SetBanker();
-		e.InitBoard(12, 0, n);
+		e.InitBoard(0, n, 12);
 		
 		
 		IOWrapper.SysOutNL("Starting round..");

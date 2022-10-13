@@ -13,8 +13,8 @@ public class Engine extends GameObjects.Engine {
 		Stats = new Score(0,0,0);
 	}
 	
-	public void InitBoard(int boardSize, int nextPlayer, int totalPlayers) {
-		Board = new Board(boardSize, boardSize, nextPlayer, totalPlayers);
+	public void InitBoard(int nextPlayer, int totalPlayers, int maxCardsPerPlayer) {
+		Board = new Board(nextPlayer, totalPlayers, maxCardsPerPlayer);
 		Deck.InitCards();
 		Deck.ShuffleCards();
 	}

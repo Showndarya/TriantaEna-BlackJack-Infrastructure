@@ -14,4 +14,11 @@ public class Cell extends GameObjects.Cell {
 		this.Value = value;
 	}
 
+	public void printCell() {
+		if(this.Value != null) {
+			Card card = (Card) this.Value;
+			card.Print();
+		}
+	}
+
 }
