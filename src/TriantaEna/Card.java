@@ -8,6 +8,7 @@ import TriantaEna.Enums.Suit;
 
 public class Card extends Piece {	
 	private Rank rank;
+	private Boolean FaceUp;
 	
 	private Suit suit;
 	
@@ -15,6 +16,7 @@ public class Card extends Piece {
 		this.Key=key;
 		this.rank=rank;
 		this.suit=suit;
+		this.FaceUp = false;
 	}
 	
 	@Override
@@ -32,8 +34,31 @@ public class Card extends Piece {
 	public Rank getRank() {
 		return this.rank;
 	}
-	
-	public void Print() {
+
+	public Boolean isFaceUp() {
+		return this.FaceUp;
+	}
+
+	public void setFaceUp(Boolean faceUp) {
+		this.FaceUp = faceUp;
+	}
+
+	public void toggleFaceUp() {
+		this.FaceUp = ! this.FaceUp;
+	}
+
+	private void printFaceDown() {
+		String[] lines = new String[9];
+		IOWrapper.SysOutNL("┌───────┐");
+		IOWrapper.SysOutNL("│///////│"); 
+		IOWrapper.SysOutNL("│///////│");                                                                      
+		IOWrapper.SysOutNL("│///////│");                                                     
+		IOWrapper.SysOutNL("│///////│");                                                                      
+		IOWrapper.SysOutNL("│///////│");                                                 
+		IOWrapper.SysOutNL("└───────┘");
+	}
+
+	private void printFaceUp() {
 		String[] lines = new String[9];
 		String space="";
 		if(this.rank.GetDisplay() != "10") space=" ";
@@ -44,5 +69,13 @@ public class Card extends Piece {
 		IOWrapper.SysOutNL("│       │");                                                                      
 		IOWrapper.SysOutNL(String.format("│     %s%s│",this.rank.GetDisplay(), space));                                                 
 		IOWrapper.SysOutNL("└───────┘");
+	}
+	
+	public void Print() {
+		if(this.FaceUp) {
+			this.printFaceUp();
+		} else {
+			this.printFaceDown();
+		}
 	}
 }
