@@ -17,7 +17,6 @@ public class Board extends GameObjects.Board {
 				cell.printCell();
 			}
 		}
-		
 	}
 
 	@Override
@@ -26,8 +25,10 @@ public class Board extends GameObjects.Board {
 		int playerId = (int) position.GetFirst();
 		int cardNumber = (int) position.GetSecond();
 
-		Cell cell = (Cell) BoardLayout[playerId][cardNumber];
-		cell.SetValue(card);
+		if((Cell) BoardLayout[playerId][cardNumber] == null) {
+			BoardLayout[playerId][cardNumber]=new Cell();
+		} 
+		BoardLayout[playerId][cardNumber].SetValue(card);
 	}
 
 	@Override

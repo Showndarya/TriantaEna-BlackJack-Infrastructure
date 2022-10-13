@@ -6,7 +6,7 @@ import Common.Tuple;
 public class BetMove implements Move{
 	public Boolean isValidMove(Tuple move, GameObjects.Board board) {
         /* 
-            Validator for the move
+            Validate the move
         */
         Player player = (Player) move.GetFirst();
         int bet = (int) move.GetSecond();

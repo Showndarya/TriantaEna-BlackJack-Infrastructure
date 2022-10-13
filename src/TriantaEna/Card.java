@@ -8,15 +8,14 @@ import TriantaEna.Enums.Suit;
 
 public class Card extends Piece {	
 	private Rank rank;
-	private Boolean FaceUp;
-	
+	private Boolean FaceUp;	
 	private Suit suit;
 	
 	public Card(int key, Rank rank, Suit suit) {
 		this.Key=key;
 		this.rank=rank;
 		this.suit=suit;
-		this.FaceUp = false;
+		this.FaceUp = true;
 	}
 	
 	@Override
@@ -49,11 +48,11 @@ public class Card extends Piece {
 
 	private void printFaceDown() {
 		IOWrapper.SysOutNL("┌───────┐");
-		IOWrapper.SysOutNL("│///////│"); 
-		IOWrapper.SysOutNL("│///////│");                                                                      
-		IOWrapper.SysOutNL("│///////│");                                                     
-		IOWrapper.SysOutNL("│///////│");                                                                      
-		IOWrapper.SysOutNL("│///////│");                                                 
+		IOWrapper.SysOutNL("│░░░░░░░│"); 
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                                      
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                     
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                                      
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                 
 		IOWrapper.SysOutNL("└───────┘");
 	}
 

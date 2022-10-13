@@ -18,20 +18,40 @@ public class Main {
 		Player banker=(Player) e.GetPlayers().get(0);
 		banker.SetBanker();
 		e.InitBoard(0, n, 12);
-		
-		
 		IOWrapper.SysOutNL("Starting round..");
 		IOWrapper.SysOutNL("First card...");
 		for(int i=0;i<n;i++) {
 			IOWrapper.SysOutNL(String.format("For player %s", i+1));
 			Card card=Deck.PickNextCard();
 			Player player=(Player) e.GetPlayers().get(i);
+			Tuple move=new Tuple(i,player.countCardsInHand());
 			Board board=(Board) e.GetBoard();
-			Tuple move=new Tuple(i,card);
-			board.SetBoardMove(move, i);
+			board.SetBoardMove(move, card);
 			player.addCountCardsInHand();
 			card.Print();
 		}
+		
+		for(int i=0;i<n;i++) {
+			Board board=(Board) e.GetBoard();
+			IOWrapper.SysOutNL(String.format("Player %s", i+1));
+			//board.GetBoardMove()
+			int selection=io.GetUserInputTypeInt("1 for Bet or 2 for Fold:");
+			GameObjects.Move move;
+			switch(selection) {
+			case 1:
+				int betAmount=io.GetUserInputTypeInt("Enter your bet:");
+				move=new BetMove();
+				move.makeMove(new Tuple((Player) e.GetPlayers().get(i), betAmount ), board);
+				break;
+			case 2:
+				move=new FoldMove();
+				move.makeMove(new Tuple((Player) e.GetPlayers().get(i), i ), board);
+				break;
+				
+			}
+		}
+		
+		
 	}
 
 }

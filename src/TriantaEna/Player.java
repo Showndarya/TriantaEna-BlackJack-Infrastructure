@@ -12,6 +12,7 @@ public class Player extends GameObjects.Player {
 		this.IsBanker=false;
         this.HasFolded=true;
         this.HandValue = 0;
+        this.CountCardsInHand=0;
 	}
 
     public void setBetLimit(int betLimit) {
