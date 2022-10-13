@@ -1,5 +1,7 @@
 package TriantaEna;
 
+import java.util.Random;
+
 import Common.IOWrapper;
 import Common.Tuple;
 
@@ -8,6 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		IOWrapper io = new IOWrapper();
+		Random rand = new Random();
 		Engine e = new Engine();
 		int n=io.GetUserInputTypeInt("Enter number of players in the game(7-9):");
 		for(int i=0;i<n;i++) {
@@ -15,8 +18,11 @@ public class Main {
 			e.AddPlayer(i, name, 100);
 		}
 		
-		Player banker=(Player) e.GetPlayers().get(0);
+
+	    int bankerId=rand.nextInt(n);
+		Player banker=(Player) e.GetPlayers().get(bankerId);
 		banker.SetBanker();
+		
 		e.InitBoard(0, n, 12);
         Board board=(Board) e.GetBoard();
 		IOWrapper.SysOutNL("Starting round..");
@@ -32,6 +38,8 @@ public class Main {
 		}
 		
 		for(int i=0;i<n;i++) {
+            Player player=(Player) e.GetPlayers().get(i);
+            if(player.IsBanker()) continue;
 			IOWrapper.SysOutNL(String.format("Player %s", i+1));
 			int selection=io.GetUserInputTypeInt("1 for Bet or 2 for Fold:");
 			GameObjects.Move move;
@@ -39,11 +47,11 @@ public class Main {
 			case 1:
 				int betAmount=io.GetUserInputTypeInt("Enter your bet:");
 				move=new BetMove();
-				move.makeMove(new Tuple((Player) e.GetPlayers().get(i), betAmount ), board);
+				move.makeMove(new Tuple(player, betAmount), board);
 				break;
 			case 2:
 				move=new FoldMove();
-				move.makeMove(new Tuple((Player) e.GetPlayers().get(i), i ), board);
+				move.makeMove(new Tuple(player, i), board);
 				break;
 				
 			}
@@ -51,7 +59,7 @@ public class Main {
 		do {
     		for(int i=0;i<n;i++) {
     			Player player=(Player) e.GetPlayers().get(i);
-    			if(player.HasFolded() || player.IsBust()) {
+    			if(player.HasFolded() || player.IsBust() || player.IsBanker()) {
     			    continue;
     			}			
     
@@ -72,6 +80,14 @@ public class Main {
     		}
 		} while(!board.arePlayersDown());
 		
+		do {
+		    IOWrapper.SysOutNL("For banker..");
+            Card card=Deck.PickNextCard();
+            Tuple move=new Tuple(bankerId,banker.countCardsInHand());
+            board.SetBoardMove(move, card);
+            banker.addCountCardsInHand();
+            card.Print();
+		} while(banker.getHandValue()<=27);
 	}
 
 }
