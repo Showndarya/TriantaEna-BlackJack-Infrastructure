@@ -27,7 +27,7 @@ public class StandMove implements GameObjects.Move {
         Player player = (Player) move.GetFirst();
         Board board = (Board) b;
         if(!player.checkIfBust(board)){
-            player.fold();
+            player.fold(board);
             player.AddMove(new Tuple(this.getClass().toString(), move));
         }
     }

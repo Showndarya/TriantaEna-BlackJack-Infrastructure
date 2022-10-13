@@ -6,6 +6,8 @@ import GameObjects.Piece;
 
 public class Board extends GameObjects.Board {
 	private int CountBustedPlayers;
+	private int CountFoldedPlayers;
+
 	public Board(int nextPlayer, int totalPlayersCount, int maxCardsPerPlayer) {
 		super(totalPlayersCount, maxCardsPerPlayer, nextPlayer,totalPlayersCount);	
 		this.CountBustedPlayers = 0;	
@@ -93,11 +95,19 @@ public class Board extends GameObjects.Board {
 		this.CountBustedPlayers += 1;
 	}
 
+	public void incrementFoldedPlayers() {
+		this.CountFoldedPlayers += 1;
+	}
+
 	public int countBustedPlayers() {
 		return this.CountBustedPlayers;
 	}
 
-	public Boolean areAllPlayersBust() {
-		return this.Width - 1 == this.CountBustedPlayers;
+	public int countFoldedPlayers() {
+		return this.CountFoldedPlayers;
+	}
+
+	public Boolean arePlayersDown() {
+		return this.Width - 1 == this.CountBustedPlayers + this.CountBustedPlayers;
 	}
 }; 

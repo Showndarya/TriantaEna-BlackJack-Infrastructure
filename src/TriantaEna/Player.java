@@ -59,8 +59,11 @@ public class Player extends GameObjects.Player {
         return this.IsBust;
     }
 
-    public void fold() {
-        this.HasFolded = true;
+    public void fold(Board b) {
+        if(!this.HasFolded){
+            this.HasFolded = true;
+            b.incrementFoldedPlayers();
+        }
     }
     
     public void stand() {
@@ -68,8 +71,10 @@ public class Player extends GameObjects.Player {
     }
     
     public void bust(Board b) {
-        this.IsBust = true;
-        b.incrementBustedPlayers();
+        if(!IsBust){
+            this.IsBust = true;
+            b.incrementBustedPlayers();
+        }
     }
 
     public int getHandValue() {
