@@ -1,6 +1,7 @@
 package GameObjects;
 import java.util.*;
 import Common.*;
+import TriantaEna.Score;
 
 public class Player {	
 	private int Id;	
@@ -42,6 +43,10 @@ public class Player {
 	public void SetTotal() {
 		this.Stats.SetPlayerTotal();
 	}
+    
+    public void SetStats(Score stats) {
+        this.Stats=stats;
+    }
 	
 	public void SetPiece(Piece piece) {
 		this.Piece = piece;

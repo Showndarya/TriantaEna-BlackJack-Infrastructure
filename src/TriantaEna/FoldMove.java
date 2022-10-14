@@ -26,6 +26,7 @@ public class FoldMove implements GameObjects.Move {
         Board board = (Board) b;
         if(!player.checkIfBust(board)){
             player.fold(board);
+            player.SetFolds();
             player.AddMove(new Tuple(this.getClass().toString(), move));
         }
     }

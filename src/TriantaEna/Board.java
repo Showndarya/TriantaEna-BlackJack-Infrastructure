@@ -108,6 +108,6 @@ public class Board extends GameObjects.Board {
 	}
 
 	public Boolean arePlayersDown() {
-		return this.Width - 1 == this.CountBustedPlayers + this.CountBustedPlayers;
+		return this.Width - 1 == this.CountBustedPlayers + this.CountFoldedPlayers;
 	}
 }; 

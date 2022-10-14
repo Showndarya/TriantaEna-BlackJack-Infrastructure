@@ -31,6 +31,7 @@ public class Main {
 			IOWrapper.SysOutNL(String.format("For player %s", i+1));
 			Card card=Deck.PickNextCard();
 			Player player=(Player) e.GetPlayers().get(i);
+            player.setHandValue(card.getRank().GetValue());
 			Tuple move=new Tuple(i,player.countCardsInHand());
 			board.SetBoardMove(move, card);
 			player.addCountCardsInHand();
@@ -74,20 +75,37 @@ public class Main {
                     case 2:
                         move=new StandMove();
                         move.makeMove(new Tuple((Player) e.GetPlayers().get(i), i ), board);
-                        break;
-                        
+                        break;                        
                     }
+                if(player.getHandValue()>31) {
+                    player.bust(board);
+                    player.SetBusts();
+                }
     		}
 		} while(!board.arePlayersDown());
 		
 		do {
 		    IOWrapper.SysOutNL("For banker..");
             Card card=Deck.PickNextCard();
+            banker.setHandValue(card.getRank().GetValue());
             Tuple move=new Tuple(bankerId,banker.countCardsInHand());
             board.SetBoardMove(move, card);
             banker.addCountCardsInHand();
             card.Print();
 		} while(banker.getHandValue()<=27);
-	}
+		
+        if(banker.getHandValue()>31) {
+            banker.bust(board);
+            banker.SetBusts();
+        }
+		
+		for(int i=0;i<n;i++) {
+            Player player=(Player) e.GetPlayers().get(i);
+            IOWrapper.SysOutNL(String.format("Player %s: %s",
+                    i+1, player.getHandValue()));
+            IOWrapper.SysOutNL(player.DisplayStats());
+		    
+		}
+ 	}
 
 }

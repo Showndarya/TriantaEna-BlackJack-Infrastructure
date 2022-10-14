@@ -11,5 +11,6 @@ public class Constants {
 	public static int MaximumBoardSize = 10;
 	public static int MinimumTeamSize = 1;
 	public static int MaximumTeamSize = 10;
+	public static int MaximumHandLimit=31;
 	
 }

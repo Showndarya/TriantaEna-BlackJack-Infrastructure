@@ -1,5 +1,7 @@
 package TriantaEna;
 
+import Common.Constants;
+
 public class Player extends GameObjects.Player {
     private int BetLimit;
     private int CountCardsInHand;
@@ -58,6 +60,30 @@ public class Player extends GameObjects.Player {
     public Boolean IsBust() {
         return this.IsBust;
     }
+    
+    public void SetBusts() {
+        var stats=(Score) this.GetStats();
+        stats.addBust();
+        this.SetStats(stats);
+    }
+
+    public void SetHits() {
+        var stats=(Score) this.GetStats();
+        stats.addHit();
+        this.SetStats(stats);
+    }
+
+    public void SetStands() {
+        var stats=(Score) this.GetStats();
+        stats.addStand();
+        this.SetStats(stats);
+    }
+
+    public void SetFolds() {
+        var stats=(Score) this.GetStats();
+        stats.addFold();
+        this.SetStats(stats);
+    }
 
     public void fold(Board b) {
         if(!this.HasFolded){
@@ -74,6 +100,7 @@ public class Player extends GameObjects.Player {
         if(!IsBust){
             this.IsBust = true;
             b.incrementBustedPlayers();
+            
         }
     }
 
@@ -82,7 +109,12 @@ public class Player extends GameObjects.Player {
     }
 
     public void setHandValue(int handValue){
-        this.HandValue = handValue;
+        this.HandValue+= handValue;
+    }
+    
+    public String DisplayStats() {
+        var stats=(Score) this.GetStats();
+        return stats.DisplayStats();
     }
 
     public void printCards(Board board) {
@@ -94,7 +126,7 @@ public class Player extends GameObjects.Player {
     }
 
     public Boolean checkIfBust(Board b) {
-        if (!this.IsBust && this.HandValue >= 31) {
+        if (!this.IsBust && this.HandValue >= Constants.MaximumHandLimit) {
             this.bust(b);
         }
         return this.IsBust;
