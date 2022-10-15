@@ -47,11 +47,25 @@ public class Card extends Piece {
 	}
 
 	private void printFaceDown() {
-		
+		IOWrapper.SysOutNL("┌───────┐");
+		IOWrapper.SysOutNL("│░░░░░░░│"); 
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                                      
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                     
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                                      
+		IOWrapper.SysOutNL("│░░░░░░░│");                                                 
+		IOWrapper.SysOutNL("└───────┘");
 	}
 
 	private void printFaceUp() {
-		
+		String space="";
+		if(this.rank.GetDisplay() != "10") space=" ";
+		IOWrapper.SysOutNL("┌───────┐");
+		IOWrapper.SysOutNL(String.format("│%s%s     │",this.rank.GetDisplay(), space)); 
+		IOWrapper.SysOutNL("│       │");                                                                      
+		IOWrapper.SysOutNL(String.format("│   %s   │",this.suit.GetDisplay()));                                                     
+		IOWrapper.SysOutNL("│       │");                                                                      
+		IOWrapper.SysOutNL(String.format("│     %s%s│",this.rank.GetDisplay(), space));                                                 
+		IOWrapper.SysOutNL("└───────┘");
 	}
 	
 	public void Print() {
