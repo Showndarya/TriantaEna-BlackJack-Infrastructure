@@ -3,7 +3,9 @@ package TriantaEna;
 import Common.Tuple;
 
 public class FoldMove implements GameObjects.Move {
-
+    /*
+    * The Fold move class. Implements to Move class from Game Objects.
+    */
     @Override
     public Boolean isValidMove(Tuple move, int boardLength, int boardWidth, GameObjects.Board b) {
         return true;
@@ -22,6 +24,9 @@ public class FoldMove implements GameObjects.Move {
 
     @Override
     public void makeMove(Tuple move, GameObjects.Board b) {
+        /*
+         * If the player is not Bust, then fold.
+         */
         Player player = (Player) move.GetFirst();
         Board board = (Board) b;
         if(!player.checkIfBust(board)){

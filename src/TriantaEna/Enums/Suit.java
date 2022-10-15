@@ -1,6 +1,9 @@
 package TriantaEna.Enums;
 
 public enum Suit {
+    /*
+     * Enum to represent the four suits of cards.
+     */
     Heart("Hearts", "♥"),
     Spade("Spades","♠ "),
     Club("Clubs","♣"),

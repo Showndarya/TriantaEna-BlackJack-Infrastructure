@@ -3,7 +3,9 @@ package TriantaEna;
 import Common.Tuple;
 
 public class StandMove implements GameObjects.Move {
-
+    /*
+     * The Stand move class. Implements to Move class from Game Objects.
+     */
     @Override
     public Boolean isValidMove(Tuple move, int boardLength, int boardWidth, GameObjects.Board b) {
         // TODO Auto-generated method stub

@@ -1,6 +1,10 @@
 package TriantaEna.Enums;
 
 public enum Rank {
+	/*
+	 * Enum for representing ranks of a card. Ace, Jack, Queen and King are A, J, Q, and K respectively.
+	 * Each rank has a value between 1 to 10 so that they can be added up in the hand.
+	 */
 	Ace(1,"A"),
 	Two(2,"2"),
 	Three(3,"3"),

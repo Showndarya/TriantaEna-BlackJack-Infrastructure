@@ -3,6 +3,12 @@ package TriantaEna;
 import Common.Constants;
 
 public class Player extends GameObjects.Player {
+    /*
+     * Extends the Player class while adding additional private variables.
+     * IsBanker represents if the player is the dealer.
+     * IsFolded, IsStanded, IsBust represents if the player folds, stands, or is bust.
+     * Stores the current hand value and the number of cards in hand
+     */
     private int BetLimit;
     private int CountCardsInHand;
     private boolean IsBanker;
