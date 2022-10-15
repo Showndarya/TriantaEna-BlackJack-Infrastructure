@@ -2,6 +2,7 @@ package GameObjects;
 import java.util.ArrayList;
 
 public class Team {	
+	// Class to hold team information, list of players with manipulation functions.
 	private int Id;		
 	private Piece Piece;
 	private String Name;

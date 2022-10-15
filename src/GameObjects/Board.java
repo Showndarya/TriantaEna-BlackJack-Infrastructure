@@ -4,6 +4,10 @@ import Common.*;
 import java.util.ArrayList;
 
 public abstract class Board {	
+	/*
+	 Elements of the board like board dimensions, board layout, count of players, game pieces.
+	 Functions to set board pieces, game moves, resetting the board, printing the board on the terminal.
+	 */
 	protected void Init(int nextPlayer, int totalPlayersCount) {
 		this.NextPlayer = nextPlayer;
 		this.Pieces = new ArrayList<Piece>();

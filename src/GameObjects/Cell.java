@@ -1,6 +1,8 @@
 package GameObjects;
 
 public class Cell {
+	// Class used to store any object value.
+
 	protected Object Value;
 	
 	protected int WinWhenStarted;

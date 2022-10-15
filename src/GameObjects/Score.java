@@ -3,6 +3,9 @@ package GameObjects;
 import Common.IOWrapper;
 
 public class Score {	
+	/*
+	 * Maintains scores of the players. Statistics include the number of wins, loses, and draws. Can be extended to add more statistics.
+	 */
 	private int Wins;	
 	private int Draws;	
 	private int Total;

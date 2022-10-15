@@ -3,6 +3,10 @@ package GameObjects;
 import java.util.ArrayList;
 
 public abstract class Engine {
+	/*
+	 * Abstract class which houses the main game loop. Used to create the game board,
+	 * add players, teams, while keeping track of the overall scores.
+	 */
 	protected Board Board;	
 	protected ArrayList<Team> Teams;	
 	protected ArrayList<Player> Players;	

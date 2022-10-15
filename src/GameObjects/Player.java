@@ -4,6 +4,9 @@ import Common.*;
 import TriantaEna.Score;
 
 public class Player {	
+	/*
+	 * Houses player information with private variables like name, id, score, past moves.
+	 */
 	private int Id;	
 	private String Name;	
 	private Piece Piece;	
