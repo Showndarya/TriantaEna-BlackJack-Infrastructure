@@ -1,7 +1,6 @@
 package TriantaEna;
 
 public class Cell extends GameObjects.Cell {
-	
 	public Cell() {
 		this.WinWhenStarted = 0;
 	}

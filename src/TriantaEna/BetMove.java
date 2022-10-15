@@ -4,6 +4,9 @@ import GameObjects.Move;
 import Common.Tuple;
 
 public class BetMove implements Move{
+    /**
+     * The Bet move class. Implements to Move class from Game Objects.
+     */
 	public Boolean isValidMove(Tuple move, GameObjects.Board board) {
         /* 
             Validate the move
@@ -18,6 +21,9 @@ public class BetMove implements Move{
     }
 
     public void makeMove(Tuple move, GameObjects.Board board) {
+        /*
+         * set the reduced bet limit after the player enters an amount.
+         */
         Player player = (Player) move.GetFirst();
         int bet = (int) move.GetSecond();
 

@@ -5,6 +5,11 @@ import Common.Tuple;
 import GameObjects.Piece;
 
 public class Board extends GameObjects.Board {
+	/*
+	 * Entexds the Board class from Game objects.
+	 * Adds a new constructor to work without width and height.
+	 * Instead the total number of players is the width and the max number of cards possible is the height of the board.
+	 */
 	private int CountBustedPlayers;
 	private int CountFoldedPlayers;
 

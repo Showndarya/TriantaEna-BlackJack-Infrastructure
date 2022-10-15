@@ -6,7 +6,10 @@ import TriantaEna.Enums.Rank;
 import TriantaEna.Enums.Suit;
 
 public class Deck {
-	
+	/*
+	 * The Deck of cards. Initializes the cards from Rank and Suit, and adds them to a Stack.
+	 * Shuffles the cards before a card is pulled.
+	 */
 	private static Stack<Card> Cards=new Stack<Card>();
 	
 	public static void InitCards() {
