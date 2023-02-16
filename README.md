@@ -18,3 +18,5 @@ piece (game piece).
 1) Move: Interface to represent a player’s move. For example placing a piece in tic tac toe, or a
 castle move in chess.
 2) Turn: Interface to hold functions for handling turn based games.
+
+Built on base code from [Reusable-Board-Game-Structure](https://github.com/Showndarya/Reusable-Board-Game-Structure)
