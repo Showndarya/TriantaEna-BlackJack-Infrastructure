@@ -20,3 +20,7 @@
   2. Turn: Interface to hold functions for handling turn based games.
 
 Built on base code from [Reusable-Board-Game-Structure](https://github.com/Showndarya/Reusable-Board-Game-Structure)
+
+## Team Members:
+* Showndarya Madhavan - shmadhav@bu.edu
+* Prithviraj Khelkar - pkhelkar@bu.edu
